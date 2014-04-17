@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	
+	"name": "Super Paws",
+	"description": "Improves your MyNEU experience.",
+	"version": "0.1",
+	
+	"permissions": [
+		"http://*.neu.edu/*",
+		"https://*.neu.edu/*"
+	],
+	"content_scripts": [
+        {
+            "matches": ["http://myneu.neu.edu/jsp/misc/timedout2.jsp", "http://myneu.neu.edu/jsp/misc/serverFailure.jsp"],
+            "js": ["redirect.js"]
+        },
+        {
+		    "matches": ["https://prod-web.neu.edu/webapp6/DARSStudent/ParseAuditServlet"],
+		    "css": ["jquery.qtip.css"],
+		    "js": ["jquery.min.js", "imagesloaded.min.js", "jquery.qtip.min.js", "content.js"]
+	    }]
+}
